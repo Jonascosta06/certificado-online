@@ -1,5 +1,12 @@
+import { useSearchParams } from "react-router-dom";
 import logo from "./assets/logo.png";
-export const Certificado = ({ name, course, date }) => {
+import { useEffect } from "react";
+export const Certificado = () => {
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get("name");
+  const course = searchParams.get("course");
+  const date = searchParams.get("date");
+
   return (
     <div className="certificate-container">
       <div className="certificate-border">
@@ -13,8 +20,9 @@ export const Certificado = ({ name, course, date }) => {
           <p>em</p>
           <h4>{new Date(date).toLocaleDateString()}</h4>
           <div className="signature">
-            <p>Assinatura do Instrutor</p>
-            <div className="signature-line"></div>
+            <center>
+              <h6></h6>
+            </center>
             <p>Instrutor Responsável</p>
           </div>
         </div>
