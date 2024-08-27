@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./router/home.jsx";
-import { Certificado } from "./Certificado.jsx";
+import Home from "./pages/home";
+import Certificado from "./pages/Certificado";
+import "./styles/style.css";
+import CertificadoIndividual from "./pages/CertificadoIndividual";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,12 @@ const router = createBrowserRouter([
     path: "/certificado",
     element: <Certificado />,
   },
+  {
+    path: "/certificado/:id",
+    element: <CertificadoIndividual />,
+  },
 ]);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
